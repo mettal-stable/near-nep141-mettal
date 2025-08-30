@@ -1728,6 +1728,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "near-contract-standards"
+version = "5.17.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "deeee26550aaf4b670eab42e56bd1f329a29759d26424db5a97a9277eb27fa3f"
+dependencies = [
+ "near-sdk",
+]
+
+[[package]]
 name = "near-crypto"
 version = "0.30.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1847,6 +1856,7 @@ dependencies = [
 name = "near-nep141-mettal"
 version = "0.1.0"
 dependencies = [
+ "near-contract-standards",
  "near-sdk",
  "near-workspaces",
  "serde_json",

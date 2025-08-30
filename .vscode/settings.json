@@ -1,0 +1,21 @@
+{
+    "cSpell.words": [
+        "borsh",
+        "cpath",
+        "csvg",
+        "Mettal",
+        "mxnd",
+        "yocto"
+    ],
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "Cargo.toml",
+        "node_modules",
+        "vscode-extension",
+        ".git/{info,lfs,logs,refs,objects}/**",
+        ".git/{index,*refs,*HEAD}",
+        ".vscode",
+        "scripts/common/*.sh",
+        ".vscode-insiders"
+    ]
+}
