@@ -47,8 +47,8 @@ load_config() {
 
     # Read configuration values
     local network_in_config=$(jq -r '.network // "testnet"' "$config_file")
-    # it should match $NETWORK
-    if [ "$network_in_config" != "$NETWORK" ]; then
+    # it should match $NETWORK, but skip for sandbox
+    if [ "$NETWORK" != "sandbox" ] && [ "$network_in_config" != "$NETWORK" ]; then
         log_error "Network in config ($network_in_config) does not match script argument ($NETWORK)"
         exit 1
     fi
