@@ -168,8 +168,8 @@ EOF
 }
 
 
-# Main execution
-main() {
+# deploys a contract in <network> according to config-file
+deploy_stablecoin_contract() {
     NETWORK=$1
     CONFIG_FILE=$2
     DEPLOY_ONLY=false

@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build (non-reproducible-wasm)",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/build.sh"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build (reproducible-wasm)",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/build-reproducible.sh"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}

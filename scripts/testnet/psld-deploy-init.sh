@@ -1,4 +1,4 @@
 . ./scripts/common/deploy_functions.sh
 # Run main function
-main testnet ./scripts/testnet/psld-testnet.json
+deploy_stablecoin_contract testnet ./scripts/testnet/psld-testnet.json
 

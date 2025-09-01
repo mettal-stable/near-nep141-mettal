@@ -1,3 +1,3 @@
-cargo near build --non-verifiable-wasm
+cargo near build non-reproducible-wasm
 mkdir -p res
-cp target/wasm32-unknown-unknown/release/*.json res/
+cp -u target/near/*.json res/
