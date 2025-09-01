@@ -92,21 +92,21 @@ impl Contract {
     }
 
     // issuer can mint
+    // receiver_id must be registered with storage_deposit before minting
     #[payable]
-    pub fn ft_mint(&mut self, amount: U128, memo: Option<String>) {
+    pub fn ft_mint(&mut self, receiver_id: AccountId, amount: U128, memo: Option<String>) {
         assert_one_yocto();
         self.assert_issuer_calling();
-        self.token
-            .internal_deposit(&env::predecessor_account_id(), amount.into());
+        self.token.internal_deposit(&receiver_id, amount.into());
         events::FtMint {
-            owner_id: &env::predecessor_account_id(),
+            owner_id: &receiver_id,
             amount,
             memo: memo.as_deref(),
         }
         .emit();
     }
 
-    // anyone can burn their tokens
+    // anyone can burn their own tokens
     #[payable]
     pub fn ft_burn(&mut self, amount: U128, memo: Option<String>) {
         assert_one_yocto();
