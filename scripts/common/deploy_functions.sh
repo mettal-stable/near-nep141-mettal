@@ -100,7 +100,7 @@ deploy_only() {
 
     # Deploy the contract
     near contract deploy "$CONTRACT_ID" \
-        use-file "$WASM_FILE" without-init-call \
+        use-file "$WASM_PATH" without-init-call \
         network-config "$NETWORK" \
         sign-with-keychain \
         send

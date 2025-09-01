@@ -6,6 +6,8 @@
         "Mettal",
         "mxnd",
         "psld",
+        "rustc",
+        "rustup",
         "yocto"
     ],
     "cSpell.ignorePaths": [

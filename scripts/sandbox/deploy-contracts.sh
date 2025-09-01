@@ -67,9 +67,9 @@ EOF
 
 # deploy and init functions
 . ./scripts/common/deploy_functions.sh
-# Deploy & init first contract (PSLD)
+# Deploy & init PSLD token contract
 deploy_stablecoin_contract sandbox ./scripts/sandbox/psld.config.sandbox.json
-# Deploy & init second contract (MXND)
+# Deploy & init MXND token contract
 deploy_stablecoin_contract sandbox ./scripts/sandbox/mxnd.config.sandbox.json
 
 #
