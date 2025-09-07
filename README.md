@@ -216,6 +216,21 @@ near view psld.mettal.testnet ft_metadata --network-config testnet
 near call psld.mettal.testnet issue '{"account_id": "user.testnet", "amount": "1000000"}' --accountId issuer.mettal.testnet --network-config testnet
 ```
 
+### Launch Sandbox for integration testing
+
+1. start the sandbox blockchain
+```bash
+bash scripts/sandbox/launch-sandbox.sh
+```
+
+2. On a new terminal, deploy the contracts:
+```bash
+bash scripts/sandbox/deploy-contracts.sh
+```
+
+3. See https://github.com/mettal-stable/mettal-xrpl-backend-services.git to run hte API and the integration tests
+
+
 ### Sandbox Development Examples
 
 ```bash
