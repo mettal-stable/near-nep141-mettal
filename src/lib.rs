@@ -110,7 +110,7 @@ impl Contract {
     #[payable]
     pub fn ft_burn(&mut self, amount: U128, memo: Option<String>) {
         assert_one_yocto();
-        self.assert_not_frozen(env::predecessor_account_id());
+        self.assert_not_frozen(&env::predecessor_account_id());
         self.token
             .internal_withdraw(&env::predecessor_account_id(), amount.into());
         events::FtBurn {
@@ -134,11 +134,15 @@ impl Contract {
         self.assert_issuer_calling();
         self.frozen_accounts.remove(&account_id);
     }
-    pub fn assert_not_frozen(&self, account_id: AccountId) {
-        assert!(!self.is_account_frozen(account_id), "Account is frozen");
+    pub fn assert_not_frozen(&self, account_id: &AccountId) {
+        assert!(
+            !self.is_account_frozen(account_id),
+            "Account {} is frozen",
+            account_id
+        );
     }
-    pub fn is_account_frozen(&self, account_id: AccountId) -> bool {
-        self.frozen_accounts.contains(&account_id)
+    pub fn is_account_frozen(&self, account_id: &AccountId) -> bool {
+        self.frozen_accounts.contains(account_id)
     }
     pub fn get_frozen_accounts(&self, start: u64, limit: u64) -> Vec<&AccountId> {
         self.frozen_accounts
@@ -153,7 +157,8 @@ impl Contract {
 impl FungibleTokenCore for Contract {
     #[payable]
     fn ft_transfer(&mut self, receiver_id: AccountId, amount: U128, memo: Option<String>) {
-        self.assert_not_frozen(env::predecessor_account_id());
+        self.assert_not_frozen(&env::predecessor_account_id());
+        self.assert_not_frozen(&receiver_id);
         self.token.ft_transfer(receiver_id, amount, memo)
     }
 
@@ -165,7 +170,8 @@ impl FungibleTokenCore for Contract {
         memo: Option<String>,
         msg: String,
     ) -> PromiseOrValue<U128> {
-        self.assert_not_frozen(env::predecessor_account_id());
+        self.assert_not_frozen(&env::predecessor_account_id());
+        self.assert_not_frozen(&receiver_id);
         self.token.ft_transfer_call(receiver_id, amount, memo, msg)
     }
 
