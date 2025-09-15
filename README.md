@@ -6,20 +6,6 @@ A NEAR Protocol NEP-141 (Fungible Token) implementation for Mettal tokens includ
 
 This project implements NEP-141 compliant fungible tokens on the NEAR blockchain, specifically designed for Mettal's token ecosystem. The contract supports standard FT operations with additional issuer functionality for controlled token minting.
 
-## Quick Start
-
-### Local Development with Sandbox
-
-The fastest way to get started is using the NEAR sandbox for local development:
-
-```bash
-# 1. Launch sandbox and deploy contracts
-./scripts/launch-sandbox.sh
-
-# 2. In another terminal, deploy contracts and create accounts
-./scripts/sandbox-deploy-contracts.sh
-```
-
 ### Building the Contract
 
 Install [`cargo-near`](https://github.com/near/cargo-near) and build:
@@ -64,55 +50,38 @@ cargo test
    brew install jq
    ```
 
-### Local Development with Sandbox
+### Local test with Sandbox
 
-#### Starting the Sandbox
+#### 1. Start the Sandbox
 
 ```bash
 # Launch sandbox with automatic near-cli configuration
-./scripts/launch-sandbox.sh
+bash scripts/sandbox/launch-sandbox.sh
 ```
 
 This script will:
 - Configure near-cli for sandbox connection
 - Start the NEAR sandbox on localhost:3030
-- Deploy PSLD and MXND contracts
-- Set up the local development environment
 
-#### Creating Accounts and Deploying
+#### 2. Deploy contracts and create users
 
+In a different terminal:
 ```bash
-# Create required accounts and deploy contracts
-./scripts/sandbox-deploy-contracts.sh
+# Launch sandbox with automatic near-cli configuration
+bash scripts/sandbox/deploy-contracts.sh
 ```
 
-This will create:
-- `mettal.test.near` - Main organization account
-- `issuer.test.near` - Token issuer account
-- `psld-mettal.test.near` - PSLD token contract
-- `mxnd-mettal.test.near` - MXND token contract
+This script will:
+- create issuer, activator, token contract accounts, test-user accounts, etc
+- Deploy PSLD and MXND contracts
+
+After this you can run the tests in the repo mettal-blockchain-backend-services, to test a cycle against the sandbox
 
 #### Stopping the Sandbox
 
 ```bash
 # Kill all sandbox processes
-./scripts/kill-sandbox.sh
-```
-
-## Deployment
-
-## Deployment
-
-### Sandbox Development (Recommended for Development)
-
-Use the provided scripts for local development:
-
-```bash
-# Start sandbox environment
-./scripts/launch-sandbox.sh
-
-# Deploy contracts (in another terminal)
-./scripts/sandbox-deploy-contracts.sh
+bash scripts/sandbox/kill-sandbox.sh
 ```
 
 ### Testnet Deployment
@@ -121,10 +90,13 @@ For testnet deployment, use the configuration files in `scripts/testnet/`:
 
 ```bash
 # Deploy PSLD token
-./scripts/common/deploy_functions.sh testnet ./scripts/testnet/psld-testnet.json
+bash scripts/testnet/psld-deploy-init.sh
 
 # Deploy MXND token
-./scripts/common/deploy_functions.sh testnet ./scripts/testnet/mxnd-testnet.json
+bash scripts/testnet/mxnd-deploy-init.sh
+
+# Re-Deploy code only all contracts
+bash scripts/testnet/redeploy-contracts.sh
 ```
 
 ### Configuration Files
