@@ -1,6 +1,6 @@
 # near-nep141-mettal
 
-A NEAR Protocol NEP-141 (Fungible Token) implementation for Mettal tokens including PSLD and MXND tokens.
+A NEAR Protocol NEP-141 (Fungible Token) implementation for Mettal tokens including PENMT and MXND tokens.
 
 ## Overview
 
@@ -73,7 +73,7 @@ bash scripts/sandbox/deploy-contracts.sh
 
 This script will:
 - create issuer, activator, token contract accounts, test-user accounts, etc
-- Deploy PSLD and MXND contracts
+- Deploy PENMT and MXND contracts
 
 After this you can run the tests in the repo mettal-blockchain-backend-services, to test a cycle against the sandbox
 
@@ -89,8 +89,8 @@ bash scripts/sandbox/kill-sandbox.sh
 For testnet deployment, use the configuration files in `scripts/testnet/`:
 
 ```bash
-# Deploy PSLD token
-bash scripts/testnet/psld-deploy-init.sh
+# Deploy PENMT token
+bash scripts/testnet/penmt-deploy-init.sh
 
 # Deploy MXND token
 bash scripts/testnet/mxnd-deploy-init.sh
@@ -103,19 +103,19 @@ bash scripts/testnet/redeploy-contracts.sh
 
 The project uses JSON configuration files for deployment parameters:
 
-**PSLD Token Configuration** (`scripts/testnet/psld-testnet.json`):
+**PENMT Token Configuration** (`scripts/testnet/penmt-testnet.json`):
 ```json
 {
   "network": "testnet",
-  "contractId": "psld.mettal.testnet",
+  "contractId": "penmt.mettal.testnet",
   "wasmPath": "./target/near/near_nep141_mettal.wasm",
   "initArgs": {
     "owner_id": "mettal.testnet",
     "issuer_id": "issuer.mettal.testnet",
     "metadata": {
       "spec": "ft-1.0.0",
-      "name": "Mettal PSLD",
-      "symbol": "PSLD",
+      "name": "Mettal PENMT",
+      "symbol": "PENMT",
       "decimals": 6
     }
   }
@@ -153,7 +153,7 @@ The project uses JSON configuration files for deployment parameters:
 │   ├── common/
 │   │   └── deploy_functions.sh # Shared deployment functions
 │   └── testnet/
-│       ├── psld-testnet.json  # PSLD token configuration
+│       ├── penmt-testnet.json  # PENMT token configuration
 │       └── mxnd-testnet.json  # MXND token configuration
 ├── tests/
 │   └── test_basics.rs         # Integration tests
@@ -176,16 +176,16 @@ The project uses JSON configuration files for deployment parameters:
 
 ```bash
 # Check token balance
-near view psld.mettal.testnet ft_balance_of '{"account_id": "user.testnet"}' --network-config testnet
+near view penmt.mettal.testnet ft_balance_of '{"account_id": "user.testnet"}' --network-config testnet
 
 # Transfer tokens
-near call psld.mettal.testnet ft_transfer '{"receiver_id": "recipient.testnet", "amount": "1000000"}' --accountId user.testnet --deposit 0.000000000000000000000001 --network-config testnet
+near call penmt.mettal.testnet ft_transfer '{"receiver_id": "recipient.testnet", "amount": "1000000"}' --accountId user.testnet --deposit 0.000000000000000000000001 --network-config testnet
 
 # Check token metadata
-near view psld.mettal.testnet ft_metadata --network-config testnet
+near view penmt.mettal.testnet ft_metadata --network-config testnet
 
 # Issue new tokens (issuer only)
-near call psld.mettal.testnet issue '{"account_id": "user.testnet", "amount": "1000000"}' --accountId issuer.mettal.testnet --network-config testnet
+near call penmt.mettal.testnet issue '{"account_id": "user.testnet", "amount": "1000000"}' --accountId issuer.mettal.testnet --network-config testnet
 ```
 
 ### Launch Sandbox for integration testing
@@ -208,14 +208,14 @@ bash scripts/sandbox/deploy-contracts.sh
 ```bash
 # After running launch-sandbox.sh and sandbox-deploy-contracts.sh
 
-# Check PSLD balance
-near view psld-mettal.test.near ft_balance_of '{"account_id": "mettal.test.near"}' --network-config sandbox
+# Check PENMT balance
+near view penmt-mettal.test.near ft_balance_of '{"account_id": "mettal.test.near"}' --network-config sandbox
 
-# Issue PSLD tokens
-near call psld-mettal.test.near issue '{"account_id": "mettal.test.near", "amount": "1000000"}' --accountId issuer.test.near --network-config sandbox
+# Issue PENMT tokens
+near call penmt-mettal.test.near issue '{"account_id": "mettal.test.near", "amount": "1000000"}' --accountId issuer.test.near --network-config sandbox
 
-# Transfer PSLD tokens
-near call psld-mettal.test.near ft_transfer '{"receiver_id": "issuer.test.near", "amount": "100000"}' --accountId mettal.test.near --deposit 0.000000000000000000000001 --network-config sandbox
+# Transfer PENMT tokens
+near call penmt-mettal.test.near ft_transfer '{"receiver_id": "issuer.test.near", "amount": "100000"}' --accountId mettal.test.near --deposit 0.000000000000000000000001 --network-config sandbox
 ```
 
 ## Troubleshooting

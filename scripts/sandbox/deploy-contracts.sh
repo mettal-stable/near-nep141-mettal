@@ -37,7 +37,7 @@ recreate_account_from_testnet "mettal.testnet" "mettal.test.near"
 recreate_account_from_testnet "issuer.mettal.testnet" "issuer.test.near"
 recreate_account_from_testnet "activator.mettal.testnet" "activator.test.near"
 recreate_account_from_testnet "mxnd.mettal.testnet" "mxnd-mettal.test.near"
-recreate_account_from_testnet "psld.mettal.testnet" "psld-mettal.test.near"
+recreate_account_from_testnet "penmt.mettal.testnet" "penmt-mettal.test.near"
 
 # Create alice.test.near account with provided public key
 create_sandbox_account "alice.test.near" "ed25519:42xXyToBjLXny1T725FhaV3sh9tTvUrKemsKmqfNQJa9"
@@ -67,8 +67,8 @@ EOF
 
 # deploy and init functions
 . ./scripts/common/deploy_functions.sh
-# Deploy & init PSLD token contract
-deploy_stablecoin_contract sandbox ./scripts/sandbox/psld.config.sandbox.json
+# Deploy & init PENMT token contract
+deploy_stablecoin_contract sandbox ./scripts/sandbox/penmt.config.sandbox.json
 # Deploy & init MXND token contract
 deploy_stablecoin_contract sandbox ./scripts/sandbox/mxnd.config.sandbox.json
 
