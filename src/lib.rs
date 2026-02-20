@@ -151,6 +151,20 @@ impl Contract {
             .take(limit as usize)
             .collect()
     }
+
+    // Metadata updates
+    #[payable]
+    pub fn update_icon_and_symbol(&mut self, icon: Option<String>, symbol: String) {
+        assert_one_yocto();
+        self.assert_owner_calling();
+
+        let mut metadata = self.metadata.get().unwrap();
+        metadata.icon = icon;
+        metadata.symbol = symbol;
+        metadata.assert_valid();
+
+        self.metadata.set(&metadata);
+    }
 }
 
 #[near]
