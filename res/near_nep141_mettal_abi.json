@@ -7,7 +7,7 @@
       "compiler": "rustc 1.86.0",
       "builder": "cargo-near cargo-near-build 0.7.2"
     },
-    "wasm_hash": "3DELtLrcCoBC3C5ojdXW5D1Zui2TXm2XUGZoYDaMA7sb"
+    "wasm_hash": "HkDhzjGCqUEL1xu8Fgo5En9Y5TMYZYP4Bx3Mfv53M2w1"
   },
   "body": {
     "functions": [
@@ -24,7 +24,8 @@
             {
               "name": "account_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             }
           ]
@@ -46,7 +47,8 @@
             {
               "name": "account_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             }
           ]
@@ -61,7 +63,8 @@
             {
               "name": "account_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             }
           ]
@@ -122,7 +125,8 @@
             {
               "name": "receiver_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             },
             {
@@ -155,13 +159,15 @@
             {
               "name": "sender_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             },
             {
               "name": "receiver_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             },
             {
@@ -201,7 +207,8 @@
             {
               "name": "receiver_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             },
             {
@@ -234,7 +241,8 @@
             {
               "name": "receiver_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             },
             {
@@ -296,7 +304,8 @@
           "type_schema": {
             "type": "array",
             "items": {
-              "$ref": "#/definitions/AccountId"
+              "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+              "type": "string"
             }
           }
         }
@@ -307,7 +316,8 @@
         "result": {
           "serialization_type": "json",
           "type_schema": {
-            "$ref": "#/definitions/AccountId"
+            "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+            "type": "string"
           }
         }
       },
@@ -317,7 +327,8 @@
         "result": {
           "serialization_type": "json",
           "type_schema": {
-            "$ref": "#/definitions/AccountId"
+            "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+            "type": "string"
           }
         }
       },
@@ -330,7 +341,8 @@
             {
               "name": "account_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             }
           ]
@@ -355,13 +367,15 @@
             {
               "name": "owner_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             },
             {
               "name": "issuer_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             },
             {
@@ -385,7 +399,8 @@
             {
               "name": "issuer_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             }
           ]
@@ -403,7 +418,8 @@
             {
               "name": "owner_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             }
           ]
@@ -428,7 +444,8 @@
             {
               "name": "account_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
               }
             }
           ]
@@ -459,13 +476,10 @@
             {
               "name": "account_id",
               "type_schema": {
-                "anyOf": [
-                  {
-                    "$ref": "#/definitions/AccountId"
-                  },
-                  {
-                    "type": "null"
-                  }
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": [
+                  "string",
+                  "null"
                 ]
               }
             },
@@ -553,7 +567,35 @@
             {
               "name": "account_id",
               "type_schema": {
-                "$ref": "#/definitions/AccountId"
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "update_icon_and_symbol",
+        "kind": "call",
+        "modifiers": [
+          "payable"
+        ],
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "icon",
+              "type_schema": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            {
+              "name": "symbol",
+              "type_schema": {
+                "type": "string"
               }
             }
           ]
@@ -565,10 +607,6 @@
       "title": "String",
       "type": "string",
       "definitions": {
-        "AccountId": {
-          "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
-          "type": "string"
-        },
         "Base64VecU8": {
           "description": "Helper class to serialize/deserialize `Vec<u8>` to base64 string.\n\n# Example ```rust use near_sdk::{json_types::Base64VecU8, near};\n\n#[near(serializers=[json])] struct NewStruct { field: Base64VecU8, } ```",
           "type": "array",

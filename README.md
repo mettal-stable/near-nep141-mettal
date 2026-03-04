@@ -50,39 +50,6 @@ cargo test
    brew install jq
    ```
 
-### Local test with Sandbox
-
-#### 1. Start the Sandbox
-
-```bash
-# Launch sandbox with automatic near-cli configuration
-bash scripts/sandbox/launch-sandbox.sh
-```
-
-This script will:
-- Configure near-cli for sandbox connection
-- Start the NEAR sandbox on localhost:3030
-
-#### 2. Deploy contracts and create users
-
-In a different terminal:
-```bash
-# Launch sandbox with automatic near-cli configuration
-bash scripts/sandbox/deploy-contracts.sh
-```
-
-This script will:
-- create issuer, activator, token contract accounts, test-user accounts, etc
-- Deploy PENMT and MXND contracts
-
-After this you can run the tests in the repo mettal-blockchain-backend-services, to test a cycle against the sandbox
-
-#### Stopping the Sandbox
-
-```bash
-# Kill all sandbox processes
-bash scripts/sandbox/kill-sandbox.sh
-```
 
 ### Testnet Deployment
 
@@ -188,6 +155,8 @@ near view penmt.mettal.testnet ft_metadata --network-config testnet
 near call penmt.mettal.testnet issue '{"account_id": "user.testnet", "amount": "1000000"}' --accountId issuer.mettal.testnet --network-config testnet
 ```
 
+## Integration Tests
+
 ### Launch Sandbox for integration testing
 
 1. start the sandbox blockchain
@@ -200,8 +169,44 @@ bash scripts/sandbox/launch-sandbox.sh
 bash scripts/sandbox/deploy-contracts.sh
 ```
 
-3. See https://github.com/mettal-stable/mettal-xrpl-backend-services.git to run hte API and the integration tests
+3. See https://github.com/mettal-stable/mettal-blockchain-backend-services.git to run the API Service and the integration tests
 
+
+## Manual Testing
+
+### Local test with Sandbox
+
+#### 1. Start the Sandbox
+
+```bash
+# Launch sandbox with automatic near-cli configuration
+bash scripts/sandbox/launch-sandbox.sh
+```
+
+This script will:
+- Configure near-cli for sandbox connection
+- Start the NEAR sandbox on localhost:3030
+
+#### 2. Deploy contracts and create users
+
+In a different terminal:
+```bash
+# Launch sandbox with automatic near-cli configuration
+bash scripts/sandbox/deploy-contracts.sh
+```
+
+This script will:
+- create issuer, activator, token contract accounts, test-user accounts, etc
+- Deploy PENMT and MXND contracts
+
+After this you can run the tests in the repo mettal-blockchain-backend-services, to test a cycle against the sandbox
+
+#### Stopping the Sandbox
+
+```bash
+# Kill all sandbox processes
+bash scripts/sandbox/kill-sandbox.sh
+```
 
 ### Sandbox Development Examples
 

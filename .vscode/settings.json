@@ -19,6 +19,7 @@
         ".git/{index,*refs,*HEAD}",
         ".vscode",
         "scripts/common/*.sh",
-        ".vscode-insiders"
+        ".vscode-insiders",
+        "scripts/sandbox/*.sh"
     ]
 }
