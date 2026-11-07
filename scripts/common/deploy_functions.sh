@@ -47,8 +47,9 @@ load_config() {
 
     # Read configuration values
     local network_in_config=$(jq -r '.network // "testnet"' "$config_file")
-    # it should match $NETWORK, but skip for sandbox
-    if [ "$NETWORK" != "sandbox" ] && [ "$network_in_config" != "$NETWORK" ]; then
+    # "local" is our name for the near-sandbox node. The check is skipped
+    # there because near-cli calls that network "sandbox".
+    if [ "$NETWORK" != "local" ] && [ "$network_in_config" != "$NETWORK" ]; then
         log_error "Network in config ($network_in_config) does not match script argument ($NETWORK)"
         exit 1
     fi
@@ -101,7 +102,7 @@ deploy_only() {
     # Deploy the contract
     near contract deploy "$CONTRACT_ID" \
         use-file "$WASM_PATH" without-init-call \
-        network-config "$NETWORK" \
+        network-config "$NEAR_CLI_NETWORK" \
         sign-with-keychain \
         send
 }
@@ -123,7 +124,7 @@ deploy_and_init() {
         with-init-call new json-args "$(cat)" \
         prepaid-gas "$GAS Tgas" \
         attached-deposit '0 NEAR' \
-        network-config $NETWORK \
+        network-config "$NEAR_CLI_NETWORK" \
         sign-with-keychain \
         send
 }
@@ -172,6 +173,12 @@ EOF
 # deploys a contract in <network> according to config-file
 deploy_stablecoin_contract() {
     NETWORK=$1
+    # near-cli names the local node "sandbox". Our scripts call it "local".
+    if [ "$NETWORK" = "local" ]; then
+        NEAR_CLI_NETWORK=sandbox
+    else
+        NEAR_CLI_NETWORK=$NETWORK
+    fi
     CONFIG_FILE=$2
     DEPLOY_ONLY=false
     shift 2

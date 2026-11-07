@@ -114,9 +114,9 @@ The project uses JSON configuration files for deployment parameters:
 ├── src/
 │   └── lib.rs                 # Main contract implementation
 ├── scripts/
-│   ├── launch-sandbox.sh      # Start NEAR sandbox with config
-│   ├── sandbox-deploy-contracts.sh  # Deploy contracts to sandbox
-│   ├── kill-sandbox.sh        # Stop sandbox processes
+│   ├── launch-local.sh        # Start the local NEAR node
+│   ├── deploy-contracts.sh    # Deploy contracts to the local node
+│   ├── kill-local.sh          # Stop the local NEAR node
 │   ├── common/
 │   │   └── deploy_functions.sh # Shared deployment functions
 │   └── testnet/
@@ -157,16 +157,16 @@ near call penmt.mettal.testnet issue '{"account_id": "user.testnet", "amount": "
 
 ## Integration Tests
 
-### Launch Sandbox for integration testing
+### Launch the local node for integration testing
 
-1. start the sandbox blockchain
+1. start the local blockchain
 ```bash
-bash scripts/sandbox/launch-sandbox.sh
+bash scripts/local/launch-local.sh
 ```
 
 2. On a new terminal, deploy the contracts:
 ```bash
-bash scripts/sandbox/deploy-contracts.sh
+bash scripts/local/deploy-contracts.sh
 ```
 
 3. See https://github.com/mettal-stable/mettal-blockchain-backend-services.git to run the API Service and the integration tests
@@ -174,44 +174,42 @@ bash scripts/sandbox/deploy-contracts.sh
 
 ## Manual Testing
 
-### Local test with Sandbox
+### Local test
 
-#### 1. Start the Sandbox
+#### 1. Start the local node
 
 ```bash
-# Launch sandbox with automatic near-cli configuration
-bash scripts/sandbox/launch-sandbox.sh
+# Launch the local node and register the near-cli sandbox connection
+bash scripts/local/launch-local.sh
 ```
 
 This script will:
-- Configure near-cli for sandbox connection
-- Start the NEAR sandbox on localhost:3030
+- Configure near-cli for its sandbox connection
+- Start near-sandbox on localhost:3030
 
 #### 2. Deploy contracts and create users
 
 In a different terminal:
 ```bash
-# Launch sandbox with automatic near-cli configuration
-bash scripts/sandbox/deploy-contracts.sh
+bash scripts/local/deploy-contracts.sh
 ```
 
 This script will:
 - create issuer, activator, token contract accounts, test-user accounts, etc
 - Deploy PENMT and MXND contracts
 
-After this you can run the tests in the repo mettal-blockchain-backend-services, to test a cycle against the sandbox
+After this you can run the tests in the repo mettal-blockchain-backend-services, to test a cycle against the local node
 
-#### Stopping the Sandbox
+#### Stopping the local node
 
 ```bash
-# Kill all sandbox processes
-bash scripts/sandbox/kill-sandbox.sh
+bash scripts/local/kill-local.sh
 ```
 
-### Sandbox Development Examples
+### Local development examples
 
 ```bash
-# After running launch-sandbox.sh and sandbox-deploy-contracts.sh
+# After running launch-local.sh and deploy-contracts.sh
 
 # Check PENMT balance
 near view penmt-mettal.test.near ft_balance_of '{"account_id": "mettal.test.near"}' --network-config sandbox
@@ -225,19 +223,19 @@ near call penmt-mettal.test.near ft_transfer '{"receiver_id": "issuer.test.near"
 
 ## Troubleshooting
 
-### Sandbox Issues
+### Local node issues
 
-If you encounter issues with the sandbox:
+If you encounter issues with the local node:
 
 ```bash
-# Kill all sandbox processes
-./scripts/kill-sandbox.sh
+# Kill the local NEAR node
+./scripts/local/kill-local.sh
 
 # Check if ports are free
 lsof -i:3030,4000,9001
 
-# Restart sandbox
-./scripts/launch-sandbox.sh
+# Restart the local node
+./scripts/local/launch-local.sh
 ```
 
 ### Near-CLI Configuration
@@ -248,7 +246,7 @@ If near-cli commands fail:
 # Check network connections
 near config show-connections
 
-# Verify sandbox connection exists
+# Verify the near-cli sandbox connection exists
 near config show-connections | grep sandbox
 ```
 

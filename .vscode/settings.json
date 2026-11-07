@@ -20,6 +20,6 @@
         ".vscode",
         "scripts/common/*.sh",
         ".vscode-insiders",
-        "scripts/sandbox/*.sh"
+        "scripts/local/*.sh"
     ]
 }
